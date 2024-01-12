@@ -1,0 +1,54 @@
+<!-- templates/table_template.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask/NLTK Sediment Analysis Example</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        // Enable DataTables on the table
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+</head>
+<body>
+
+<h2>Flask/NLTK Sediment Analysis Example <br>
+    <h3>Last Ran (System Time): {{datetime}}</h3>
+</h2>
+
+<table id="myTable" border="1">
+    <thead>
+        <tr>
+            <th>Site Link</th>
+            <th>Sentance</th>
+            <th>compound</th>
+            <th>neg</th>
+            <th>neu</th>
+            <th>pos</th>
+            <th>Catagory</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in output %}
+            <tr>
+                <td><a href="{{ row['url'] }}">Link</a></td>
+                <td>{{ row['Sentance'] }}</td>
+                <td>{{ row['compound'] }}</td>
+                <td>{{ row['neg'] }}</td>
+                <td>{{ row['neu'] }}</td>
+                <td>{{ row['pos'] }}</td>
+                <td>{{ row['catagory'] }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
