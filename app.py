@@ -46,7 +46,7 @@ class MyModel(db.Model):
 with app.app_context():
     db.create_all()
 
-@scheduler.task('interval', id='do_job_1', hours=5, misfire_grace_time=900)
+@scheduler.task('interval', id='do_job_1', hours=1, misfire_grace_time=900)
 def job1():
     with scheduler.app.app_context():
         subjects = ['car','music','housing','jobs','tech']
