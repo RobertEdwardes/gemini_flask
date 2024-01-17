@@ -89,11 +89,11 @@ def job1():
             db.session.add(last_time)
             db.session.commit()
     
-@scheduler.task('interval', id='do_job_2', days=1, misfire_grace_time=1900)
+@scheduler.task('interval', id='do_job_2', hours=2, misfire_grace_time=1900)
 def job2():
     with scheduler.app.app_context():
-        N_days_ago = datetime.now() - timedelta(days=1)
-        db.session.query(MyModel).filter(MyModel.created_at < N_days_ago).delete()
+        N_hours_ago = datetime.now() - timedelta(hours=46)
+        db.session.query(MyModel).filter(MyModel.created_at < N_hours_ago).delete()
         db.session.commit()
         print('job2')
 
