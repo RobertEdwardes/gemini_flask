@@ -85,7 +85,8 @@ def job1():
             print(f'{subject} has been scraped')
             lastScraped.query.delete()
             db.session.commit()
-            last_time = lastScraped(last_ran=datetime.now())
+            last_ran = datetime.now() - timedelta(hours=5)
+            last_time = lastScraped(last_ran=last_ran)
             db.session.add(last_time)
             db.session.commit()
     
