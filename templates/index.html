@@ -16,6 +16,15 @@
             $('#myTable').DataTable();
         });
     </script>
+    <style>
+        body{
+            background-color: lightgray;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
 
@@ -27,11 +36,11 @@
     <thead>
         <tr>
             <th>Site Link</th>
-            <th>Sentance</th>
+            <th>Headlines</th>
             <th>compound</th>
-            <th>neg</th>
-            <th>neu</th>
-            <th>pos</th>
+            <th>negitive</th>
+            <th>neutral</th>
+            <th>postive</th>
             <th>Catagory</th>
         </tr>
     </thead>
@@ -50,7 +59,13 @@
     </tbody>
 </table>
     <footer>
+        
         <p>Built By <a href="https://www.robertedwardes.com/">Robert Edwardes</a></p>
+        <small>
+            The tables are headlines scraped from Google News every hour and processed with NLTK
+            <br>
+            using rule-based sentiment analysis and the Vader Lexicon
+        </small>
     </footer>
 </body>
 </html>
